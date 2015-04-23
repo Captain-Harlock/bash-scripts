@@ -54,3 +54,7 @@ find /etc -user `id -u` -perm -u=r -o -group `id -g` -perm -g=r -o -perm -o=r -l
 echo
 echo "Find SUID and GUID files"
 find / -type f -perm -u=s -o -type f -perm -g=s -ls  2> /dev/null
+
+echo 
+echo "Find all SUID root files"
+find / -user root -perm -4000 -print 2> /dev/null
