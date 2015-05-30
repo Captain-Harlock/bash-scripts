@@ -1,0 +1,13 @@
+#!/bin/bash
+
+clear
+
+url=https://news.ycombinator.com
+
+#print the top 10 news from the hackernews every 60 seconds
+while true
+do
+        lynx -dump $url | sed -n '/y18/,/Search: _________________/p'  | head -46  | grep -v "RSS" | grep -v "show" | grep -v "login"
+        echo
+        sleep 60
+done
