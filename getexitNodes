@@ -1,0 +1,3 @@
+#!/bin/bash
+
+lynx -dump https://check.torproject.org/exit-addresses | grep ExitAddress | cut -d " " -f1,2
