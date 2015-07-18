@@ -1,0 +1,18 @@
+#!/bin/bash
+
+exitaddFile=`lynx -dump https://check.torproject.org/exit-addresses | grep ExitAddress | cut -d " " -f2`
+
+#for the total number of IPs found in the exit-addresses file check the status of the exit Nodes
+for ipaddr in $exitaddFile; do
+
+        #silent ping
+        ping -q -c 1 -w 1  $ipaddr > /dev/null
+
+        #check the outcome of the ping
+        if [ $? == 0 ]; then
+                echo "Tor Exit Node: $ipaddr Alive..."
+        else
+                echo "Tor Exit Node $ipaddr probably down..."
+        fi;
+
+done
