@@ -1,6 +1,28 @@
 #!/bin/bash
 
+usage(){
+
+cat << EOF
+
+usage: getexitNodes -h -a 
+
+-h prints this text
+-a prints only alive nodes
+
+EOF
+
+}
+
+if [ $1 == '-h' ]; then
+        usage
+        exit 0
+fi
+
+
 exitaddFile=`lynx -dump https://check.torproject.org/exit-addresses | grep ExitAddress | cut -d " " -f2`
+
+
+counter=0
 
 #for the total number of IPs found in the exit-addresses file check the status of the exit Nodes
 for ipaddr in $exitaddFile; do
@@ -11,8 +33,12 @@ for ipaddr in $exitaddFile; do
         #check the outcome of the ping
         if [ $? == 0 ]; then
                 echo "Tor Exit Node: $ipaddr Alive..."
+                let counter=counter+1 
         else
-                echo "Tor Exit Node $ipaddr probably down..."
-        fi;
-
+                if [ $1 != '-a' ]; then
+                        echo "Tor Exit Node $ipaddr probably down..."
+                fi
+        fi
 done
+
+echo "The total Number of the alive Tor Exit Nodes is $counter"
