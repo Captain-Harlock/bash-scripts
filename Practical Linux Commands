@@ -39,8 +39,17 @@ screen    :  screen [ screen manager with VT100/ANSI terminal emulation ]
 
 Environment Variables Check
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Commnand       : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
+echo $$        :
+echo $@        :
+echo $#        :
+echo $0        :
+echo $1        :
+echo $1        :
+printenv SHELL :
+export         : 
+echo $?        :
 
 
 
