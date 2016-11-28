@@ -1,0 +1,103 @@
+Practical Linux Commands
+
+
+Basic shell Commands
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+cd        :  cd foo [ change directory ]
+ls        :  ls -lt [ list files witrh time modified and detail ]
+ls   -i   :  ls -i  [ Show inode details ]
+cp        :  cp foo.sh ~/folder/foo.sh [ copy source to destination ]
+mv        :  mv foo.sh ~/folder/foo.sh [ move source to destination ]
+rm        :  rm filename [ remove file , -rf recursively no ask ]
+wc        :  wc filename [ word count, -l, -w, -c ]
+cal       :  cal  [ shows calendar ]
+cat       :  cat file  [ show file contents ]
+tee       :  cat file1 | tee file 2 [ tee pipeline ] 
+more      :  cat file  | more  [ file perusal filter for screen viewing ]
+less      :  cat file  | less  [ opposite of more ]
+sort      :  sort data.txt  [ sort contents of a file or files, used with uniq ]
+touch     :  touch filename [ change file timestamps or create an empty file ]
+file      :  file filename  [ determine the filetype ]
+mkdir     :  mkdir directory [ create a directory ]
+rmdir     :  rmdir directory [ remove an empty directory ]
+type      :  type man [ shows info of a shell command ]
+which     :  which ls [ locate the folder of a command executable ] 
+whereis   :  whereis ls [ locate the folder of a command executable + the man pages ] 
+printenv  :  printenv [ Print all of part of the environment variables ]
+head      :  head -n 5 [ Shows the first 5 lines from the beggining of a file ] 
+tail      :  tail -n 5 [ Shows the last 5 lines from the end of a file ]
+date      :  date [ Shows the current time  and date ]
+who       :  who  [ Shows who is logged on
+whoami    :  whoami  [ Print the effective userid ]
+lastlog   :  lastlog [ reports the most recent login of all users or of a given user ]
+id        :  id      [ Print real and effective user and group IDs ]
+ln        :  ln -s Target link_name [ make symbolic links between files ]
+screen    :  screen [ screen manager with VT100/ANSI terminal emulation ]
+
+
+Environment Variables Check
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+
+Searching & Editing
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+Monitor Performance
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+strace    :
+pf        :
+top       :  top  [ Display the linux processes ]
+htop      :
+
+
+
+Network Tools
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+Syncing - Backup 
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+Regex Symbols
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+oclhashcat useful commands
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+built-in charsets in oclhashcat
+-------------------------------------------------------------------------
+Commnand  : Syntax Examples [ Explanation ]
+-------------------------------------------------------------------------
+
+
+
+
+
+
