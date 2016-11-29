@@ -3,7 +3,7 @@ Practical Linux Commands
 
 Basic shell Commands
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 cd        :  cd foo [ change directory ]
 ls        :  ls -lt [ list files witrh time modified and detail ]
@@ -39,7 +39,7 @@ screen    :  screen [ screen manager with VT100/ANSI terminal emulation ]
 
 Environment Variables Check
 -------------------------------------------------------------------------
-Commnand       : [ Explanation ]
+Command       : [ Explanation ]
 -------------------------------------------------------------------------
 echo $$        :  [ Prints the process id of the running program ]
 echo $0        :  [ Returns the name of the running process/program ]
@@ -56,14 +56,43 @@ export         :  [ Export a variable to a forked process ]
 
 Searching & Editing
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+find Command                   : [ Explanation ]
 -------------------------------------------------------------------------
+find Command
+find . -user bob               : [ Find all the files belonging to a specific user ie. bob ]
+find /var/www -group developer : [ Search files belong to a specific group ie. developer ]
+find / -mtime 50               : [ Find files modified 50 days back ]
+find / -atime 50               : [ Find files accessed in the last 50 days ]
+find / -mmin -60               : [ Find files modified in the last hour    ]
+find / -amin -60               : [ Find accessed files in last 1 hour      ]
+find / -size 50M               : [ Find all 50M Files ]
+find / -size +50M -size -100M  : [ Find all files between 50 and 100MBytes ]
+find /tmp -type f -empty       : [ Find all empty files ]
+find ~/ -type d -empty         : [ Find all empty directories ] 
+find /var/log -mmin 10         : [ Find the logs which have been modified within the last 10 minutes ]
+find . -type f -exec ls -sh {} \;|sort -n -r | head -5 : [ Display the 5 largest files in the directory and subdirectories ]
 
+
+-------------------------------------------------------------------------
+grep Command                       : [ Explanation ]
+-------------------------------------------------------------------------
+grep "literal string" filename     :
+grep "this" demo *                 :
+grep -i "string" FILE              :
+grep -A3 -i "example"              :
+grep -B3 "example" FILENAME        :
+grep -C2 "test" FILENAME           :
+grep -v "go" FILENAME              :
+grep -c 
+grep -l
+grep -o
+grep -n
+grep -irl bob /var/log            : [ list all the log files containing the user bob ]
 
 
 Monitor Performance
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 strace    :
 pf        :
@@ -74,7 +103,7 @@ htop      :
 
 Network Tools
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 
 dig       : dig +short myip.opendns.com @resolver1.opendns.com  [ Return WAN IP ] 
@@ -82,28 +111,28 @@ dig       : dig +short myip.opendns.com @resolver1.opendns.com  [ Return WAN IP 
 
 Syncing - Backup 
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 
 
 
 Regex Symbols
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 
 
 
 oclhashcat useful commands
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 
 
 
 built-in charsets in oclhashcat
 -------------------------------------------------------------------------
-Commnand  : Syntax Examples [ Explanation ]
+Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
 
 
