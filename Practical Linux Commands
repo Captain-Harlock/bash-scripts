@@ -72,22 +72,46 @@ find ~/ -type d -empty         : [ Find all empty directories ]
 find /var/log -mmin 10         : [ Find the logs which have been modified within the last 10 minutes ]
 find . -type f -exec ls -sh {} \;|sort -n -r | head -5 : [ Display the 5 largest files in the directory and subdirectories ]
 
-
+Searching & Editing
 -------------------------------------------------------------------------
 grep Command                       : [ Explanation ]
 -------------------------------------------------------------------------
 grep "literal string" filename     : [ Search for the string in the file ]
 grep "this" demo*                  : [ Search pattern in multiple files  ]
-grep -i "string" FILE              : [ Case insensitive grep of a string in multiple files ]
+grep -i "string" *                 : [ Case insensitive grep of a string in multiple files ]
 grep -A3 -i "example"              : [ Display 3 lines after match  ]
 grep -B3 "example" FILENAME        : [ Display 3 lines before match ] 
 grep -C2 "test" FILENAME           : [ Display 2 lines around match ] 
 grep -v "go" FILENAME              : [ Invert Match ] 
-grep -c "go" FILENAME              : [ count the Number of the matches ]
-grep -l "test" FILES*              :
-grep -o
-grep -n
-grep -irl bob /var/log            : [ list all the log files containing the user bob ]
+grep -c "go" FILENAME              : [ Count the Number of the matches ]
+grep -l "test" FILES*              : [ Display only filenames with matches ]
+grep -o "is.*line" FILENAME        : [ Show only the matched String  ]
+grep -n "go" FILENAME              : [ Show line numbers with Output ]
+grep -irl bob /var/log             : [ list all the log files containing the user bob ]
+
+
+Text Manipulation
+-------------------------------------------------------------------------
+Command                        : [ Explanation ]
+-------------------------------------------------------------------------
+echo ${variable #?}            : [ Extract all but the 1st character ]
+echo $variable | cut -c1       : [ Extract the 1st Character ]
+echo ${variable:0:1}           : [ Extract the 1st Character ]
+echo ${variable%${variable#?}} : [ Extract the 1st Character ]
+
+sed 's/Nick/John/g' report.txt        : [ Report every occurence of Nick with John ]
+sed -n12,18p file.txt                 : [ Show only lines 12-18 of file.txt ]
+sed 12,18d file.txt                   : [ Show all of file.txt except for lines form 12 to 18 ]
+sed G file.txt                        : [ Double space file ]
+sed '$d' file.txt                     : [ Delete the last line ]
+sed '/boom/!s/aaa/bb/'                : [ Unless boom is found replace aaa with bb ]
+sed 's/.$//' file.txt                 : [ A way to replace dos2unix ]
+sed 's/^[ ^t]*//' file.txt            : [ Delete all spaces in front of every line ]
+sed '/./!d' file.txt                  : [ Delete all blank lines from a file ]
+sed 's/.\x08//g' file                 : [ Remove nroff overstrikes ]
+sed -e :a -e 's/<[^>]*>//g;/</N;//ba' : [ Remove HTML tags ]
+sed 's/[^[:digit:]]//g'               : [ Discard everything except integers ]
+sed 's/[^[:uppper:],.]//g'            : [ Keep only an upper Character and Comma ]
 
 
 Monitor Performance
@@ -98,7 +122,7 @@ strace    :
 pf        :
 top       :  top  [ Display the linux processes ]
 htop      :
-
+lsof -i   :
 
 
 Network Tools
