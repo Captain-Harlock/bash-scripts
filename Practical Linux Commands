@@ -114,22 +114,29 @@ sed 's/[^[:digit:]]//g'               : [ Discard everything except integers ]
 sed 's/[^[:uppper:],.]//g'            : [ Keep only an upper Character and Comma ]
 
 
-Monitor Performance
+Monitor Performance/Resources
 -------------------------------------------------------------------------
-Command  : Syntax Examples [ Explanation ]
+Command                       : [ Explanation ]
 -------------------------------------------------------------------------
-strace    :
-pf        :
-top       :  top  [ Display the linux processes ]
-htop      :
-lsof -i   :
+cat /proc/cpuinfo             : [ Shows CPU Info ]
+free                          : [ Shows Free Memory ]
+ps -eo pid, euser,ruser,comm  : [ Process ID, Effective, Real UID ]
+ps m -o pid,tid,command       : [ Print the Thread IDs ]
+top                           : [ Display the linux processes ]
+htop                          : [ An interactive process viewer ]
+iostat                        : [ System Input and Output Storage Device Statistics ]
+lsscsi                        : [ Show info about the ssd drivers, sata drives etc. ]
+sudo blkid                    : [ Print block devices information ]
+cat /proc/cmdline             : [ Show the Bootloader Options ]
+strace                        : [ ]
+
 
 
 Network Tools
 -------------------------------------------------------------------------
 Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
-
+lsof -i   :
 dig       : dig +short myip.opendns.com @resolver1.opendns.com  [ Return WAN IP ] 
 
 
