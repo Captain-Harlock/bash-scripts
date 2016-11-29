@@ -76,15 +76,15 @@ find . -type f -exec ls -sh {} \;|sort -n -r | head -5 : [ Display the 5 largest
 -------------------------------------------------------------------------
 grep Command                       : [ Explanation ]
 -------------------------------------------------------------------------
-grep "literal string" filename     :
-grep "this" demo *                 :
-grep -i "string" FILE              :
-grep -A3 -i "example"              :
-grep -B3 "example" FILENAME        :
-grep -C2 "test" FILENAME           :
-grep -v "go" FILENAME              :
-grep -c 
-grep -l
+grep "literal string" filename     : [ Search for the string in the file ]
+grep "this" demo*                  : [ Search pattern in multiple files  ]
+grep -i "string" FILE              : [ Case insensitive grep of a string in multiple files ]
+grep -A3 -i "example"              : [ Display 3 lines after match  ]
+grep -B3 "example" FILENAME        : [ Display 3 lines before match ] 
+grep -C2 "test" FILENAME           : [ Display 2 lines around match ] 
+grep -v "go" FILENAME              : [ Invert Match ] 
+grep -c "go" FILENAME              : [ count the Number of the matches ]
+grep -l "test" FILES*              :
 grep -o
 grep -n
 grep -irl bob /var/log            : [ list all the log files containing the user bob ]
