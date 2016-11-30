@@ -118,33 +118,59 @@ Monitor Performance/Resources
 -------------------------------------------------------------------------
 Command                       : [ Explanation ]
 -------------------------------------------------------------------------
-cat /proc/cpuinfo             : [ Shows CPU Info ]
-free                          : [ Shows Free Memory ]
-ps -eo pid, euser,ruser,comm  : [ Process ID, Effective, Real UID ]
-ps m -o pid,tid,command       : [ Print the Thread IDs ]
-top                           : [ Display the linux processes ]
-htop                          : [ An interactive process viewer ]
-iostat                        : [ System Input and Output Storage Device Statistics ]
-lsscsi                        : [ Show info about the ssd drivers, sata drives etc. ]
-sudo blkid                    : [ Print block devices information ]
-cat /proc/cmdline             : [ Show the Bootloader Options ]
-strace                        : [ ]
+cat /proc/cpuinfo                                  : [ Shows CPU Info ]
+free                                               : [ Shows Free Memory ]
+ps -eo pid, euser,ruser,comm                       : [ Process ID, Effective, Real UID ]
+ps m -o pid,tid,command                            : [ Print the Thread IDs ]
+top                                                : [ Display the linux processes ]
+htop                                               : [ An interactive process viewer ]
+iostat                                             : [ System Input and Output Storage Device Statistics ]
+lsscsi                                             : [ Show info about the ssd drivers, sata drives etc. ]
+sudo blkid                                         : [ Print block devices information ]
+cat /proc/cmdline                                  : [ Show the Bootloader Options ]
+strace -e trace=network,read,write executable args : [ Monitor system calls from a user program ]
 
 
 
 Network Tools
 -------------------------------------------------------------------------
-Command  : Syntax Examples [ Explanation ]
+Command                                            : [ Explanation ]
 -------------------------------------------------------------------------
-lsof -i   :
-dig       : dig +short myip.opendns.com @resolver1.opendns.com  [ Return WAN IP ] 
+lsof -i                                            : [ List Programs currently used or listening to ports ]
+dig +short myip.opendns.com @resolver1.opendns.com : [ Return WAN IP ] 
+tcpdump -i eth1 -w -lpv -bert > /dev/null          : [ Measure the Network throughput with tcpdump        ]
+iptraf                                             : [ Opensource real time network monitor utility       ]
+sudo nethogs eth1                                  : [ Net Motinor & Real time Network traffic bandwidth  ]
+whois domain.com                                   : [ Client for the whois directory service             ]
+host -t ns domain.com                              : [ Shows the DNS Servers for the domain               ]
+host -l domain.com ns2.zoneedit.com                : [ Perform DNS zone transfer                          ]
+arp                                                : [ Manipulate the system ARP cache                    ]
+sudo netstat -tupln                                : [ Show the Tcp and Udp listing ports with PID        ]
+ssh -L 9000:test.com:80 sshserver -pxx -N          : [ Perform ssh tunneling of localhost port 9000 to remote port 80 ] 
+nc [ip] [port]  (issue --> GET / HTTP/1.1)         : [ Netcat client mode - Connect to a specific ip:port ]
+nc -l 3333                                         : [ Create a Server and set it to listen to port 3333  ]
+nslookup                                           : [ Featch mail exchanger servers                      ]
+> set type=mx 
+> bulbsecurity     
+
+
+nmap 
+-------------------------------------------------------------------------
+Command                 : [ Explanation ]
+-------------------------------------------------------------------------
+nmap -sC -sV [ip]       : [ Scan and retrieve software version & use NSE ]
+nmap -SA 192.168.0.1    : [ Scan a host to detect a firewall ]
+nmap -SP 192.168.0.*    : [ Find out live hosts in class C IP range ]
+nmap -sP 192.168.0.1/24 : [ Find out live hosts in class C IP range ]
+
 
 
 Syncing - Backup 
 -------------------------------------------------------------------------
 Command  : Syntax Examples [ Explanation ]
 -------------------------------------------------------------------------
-
+tar cBvf - directory | ssh remote_host tar xBvpf : [ Compress a directory and send it to a remote host where it uncompresses itself ]
+dd if=/dev/hdd5 | 
 
 
 Regex Symbols
