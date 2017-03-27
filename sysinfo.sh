@@ -2,6 +2,8 @@
 #script created by ioef aka Dr_Ciphers
 clear
 
+
+
 echo -e "Hostname\t:" `hostname`
 echo -e "IP\t\t: "`host \`hostname\` | cut -d' ' -f4`
 echo -e "System Time\t:" `date +%H:%H:%S`
@@ -48,14 +50,15 @@ echo "================================================"
 
 #code to find the default Gateway either on Linux or OpenBSD
 if [ "$OS" == "Linux" ]; then
-    echo "Gateway:" `sudo route -n | awk '/^0.0.0.0/{ printf $2"\n" } '`
+    echo -e "Gateway\t\t:" `sudo route -n | awk '/^0.0.0.0/{ printf $2"\n" } '`
 fi
 
 if [ "$OS" == "OpenBSD" ]; then
-   echo "Gateway:" `sudo route -n  show | awk '/^default/{ printf $2"\n" } '`
+   echo -e "Gateway\t\t:" `sudo route -n  show | awk '/^default/{ printf $2"\n" } '`
 fi
 
-echo "DNS" `nslookup ls | grep Server:`
+#echo "DNS" `nslookup ls | grep Server:`
+echo -e "DNS Server\t:"  `cat /etc/resolv.conf  | grep nameserver | cut -d" " -f2`
 
 echo
 echo "Network Listening Services (IPv4)"
