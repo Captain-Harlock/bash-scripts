@@ -58,7 +58,7 @@ fi
 echo "DNS" `nslookup ls | grep Server:`
 
 echo
-echo "Network Listening Services IPv4"
+echo "Network Listening Services (IPv4)"
 echo "================================================================================================"
 sudo netstat -tupln  | grep "LISTEN" | grep "tcp "
 
