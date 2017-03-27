@@ -2,12 +2,34 @@
 #script created by ioef aka Dr_Ciphers
 clear
 
+
+
 echo -e "Hostname\t:" `hostname`
 echo -e "IP\t\t: "`host \`hostname\` | cut -d' ' -f4`
 echo -e "System Time\t:" `date +%H:%H:%S`
-echo -e "Uptime\t\t:" `uptime | awk '{print $3" "$4}'` | cut -d',' -f1
+echo -e "Uptime\t\t:" `uptime | awk '{print $3" "$4}'` | cut -d',' -f1 
 
+
+echo -e "username\t:" `whoami`
+echo -e "Groups\t\t:" `groups`
+echo -e "working dir\t: "`pwd`
+
+echo
+
+#acquire the OS and store it for futher usage
+OS=`uname -s`
+
+echo "CPU"
+echo "=========================================================================="
 echo "This is `uname -s` running on a `uname -m` processor."
+
+if [ "$OS" == "Linux" ]; then
+   echo "CPU Model:" `cat /proc/cpuinfo  | grep "model name" | sort -u  | cut -d":" -f2`
+fi
+
+if [ "$OS" == "OpenBSD" ]; then 
+   sysctl hw | grep hw.model | sort -u | cut -d"=" -f2 
+fi
 
 
 echo
@@ -15,6 +37,7 @@ echo "Memory"
 echo "=========================================================================="
 free -h | head -2
 
+echo
 echo
 echo "Disk usage" 
 echo "================================================"
@@ -24,6 +47,16 @@ df -h
 echo
 echo "Network Information"
 echo "================================================"
+
+#code to find the default Gateway either on Linux or OpenBSD
+if [ "$OS" == "Linux" ]; then
+    echo "Gateway:" `sudo route -n | awk '/^0.0.0.0/{ printf $2"\n" } '`
+fi
+
+if [ "$OS" == "OpenBSD" ]; then
+   echo "Gateway:" `sudo route -n  show | awk '/^default/{ printf $2"\n" } '`
+fi
+
 echo "DNS" `nslookup ls | grep Server:`
 
 echo
