@@ -58,7 +58,7 @@ if [ "$OS" == "OpenBSD" ]; then
 fi
 
 #echo "DNS" `nslookup ls | grep Server:`
-echo -e "DNS Server\t:"  `cat /etc/resolv.conf  | grep nameserver | cut -d" " -f2`
+echo -e "DNS Server(s)\t:"  `cat /etc/resolv.conf  | grep nameserver | cut -d" " -f2`
 
 echo
 echo "Network Listening Services (IPv4)"
