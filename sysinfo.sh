@@ -2,8 +2,6 @@
 #script created by ioef aka Dr_Ciphers
 clear
 
-
-
 echo -e "Hostname\t:" `hostname`
 echo -e "IP\t\t: "`host \`hostname\` | cut -d' ' -f4`
 echo -e "System Time\t:" `date +%H:%H:%S`
