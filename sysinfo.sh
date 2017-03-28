@@ -11,6 +11,7 @@ echo -e "Uptime\t\t:" `uptime | awk '{print $3" "$4}'` | cut -d',' -f1
 
 
 echo -e "username\t:" `whoami`
+echo -e "Lastlog\t\t:" `lastlog | grep \`whoami\` | cut -d' ' --complement -f1`
 echo -e "Groups\t\t:" `groups`
 echo -e "working dir\t: "`pwd`
 
