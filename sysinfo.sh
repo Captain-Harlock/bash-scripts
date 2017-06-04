@@ -4,7 +4,7 @@ clear
 
 
 
-echo -e "Hostname\t     :" `hostname`
+echo -e "Hostname\t:" `hostname`
 echo -e "IP\t\t: "`host \`hostname\` | cut -d' ' -f4`
 echo -e "System Time\t:" `date +%H:%H:%S`
 echo -e "Uptime\t\t:" `uptime | awk '{print $3" "$4}'` | cut -d',' -f1 
