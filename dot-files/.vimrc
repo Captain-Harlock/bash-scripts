@@ -1,11 +1,23 @@
-" enable line numbers
-set number
+set number "enable line numbers
 
-" enable syntax highlighting
-syntax on
+syntax on "enable syntax highlighting
+filetype indent plugin on "enable automatic indentation 
 
-" enable automatic indentation 
-filetype indent plugin on
-
-" if using a dark background adjust the colors for better contrast
+"if using a dark background adjust the colors for better contrast
 set background=dark
+
+set ruler                     " show the line number on the bar
+set more                      " use more prompt
+set autoread                  " watch for file changes
+set noautowrite               " don't automagically write on :next
+set lazyredraw                " don't redraw when don't have to
+set showmode
+set showcmd
+set bs=2 
+set number
+set wrap!
+set smartindent
+set tabstop=4 "“set tab character to 4 characters
+set expandtab "“turn tabs into whitespace
+set shiftwidth=4 "“indent width for autoindent
+
