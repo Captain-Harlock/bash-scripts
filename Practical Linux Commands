@@ -71,6 +71,9 @@ find /tmp -type f -empty       : [ Find all empty files ]
 find ~/ -type d -empty         : [ Find all empty directories ] 
 find /var/log -mmin 10         : [ Find the logs which have been modified within the last 10 minutes ]
 find . -type f -exec ls -sh {} \;|sort -n -r | head -5 : [ Display the 5 largest files in the directory and subdirectories ]
+find / -perm /4000 2>/dev/null : [ Find all files having the SetUID bit set ]
+find / -perm /2000 2>/dev/null : [ Find all files having the SetGID bit set ]
+find / -perm /1000 2>/dev/null : [ Find all files having the sticky bit set ]
 
 Searching & Editing
 -------------------------------------------------------------------------
