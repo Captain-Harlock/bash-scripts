@@ -91,7 +91,7 @@ grep -l "test" FILES*              : [ Display only filenames with matches ]
 grep -o "is.*line" FILENAME        : [ Show only the matched String  ]
 grep -n "go" FILENAME              : [ Show line numbers with Output ]
 grep -irl bob /var/log             : [ list all the log files containing the user bob ]
-
+grep -Ev '^#|^$'  /etc/config.file : [ Print all the lines of a conf file instead of the empty and the comments ]
 
 Text Manipulation
 -------------------------------------------------------------------------
@@ -178,28 +178,6 @@ dd if=/dev/hdd5 | gzip -9 | nc -l 3333                    : [ Server Machine to 
 nc 192.168.0.1 3333 | pv -b > hdd5partion.img.gz          : [ Connect to the above server and receive the partition image ]
 rsync -rsh='ssh -p 3333' -azv bash hostname:~/tmp .       : [ Use a different port than 22 for rsync, copy all bash contents recursively, verbose mode and compress ]
 rsync -n                                                  : [ Can be used in case you want a dry run, not dry rum :-) ]
-
-
-
-
-Regex Symbols
--------------------------------------------------------------------------
-Command  : Syntax Examples [ Explanation ]
--------------------------------------------------------------------------
-
-
-
-oclhashcat useful commands
--------------------------------------------------------------------------
-Command  : Syntax Examples [ Explanation ]
--------------------------------------------------------------------------
-
-
-
-built-in charsets in oclhashcat
--------------------------------------------------------------------------
-Command  : Syntax Examples [ Explanation ]
--------------------------------------------------------------------------
 
 
 
