@@ -19,7 +19,7 @@ if [ "$1" == "-h" ]; then
 fi
 
 
-exitaddFile=`lynx -dump https://check.torproject.org/exit-addresses | grep ExitAddress | cut -d " " -f2`
+exitaddFile=$(wget --quiet -O - https://check.torproject.org/exit-addresses | grep 'ExitAddress' | cut -d' ' -f2)
 
 
 counter=0
@@ -37,8 +37,8 @@ for ipaddr in $exitaddFile; do
         else
                 if [ "$1" != "-a" ]; then
                         echo "Tor Exit Node $ipaddr probably down..."
-                fi
-        fi
+                fi  
+        fi  
 done
 
 echo "The total Number of the alive Tor Exit Nodes is $counter"
