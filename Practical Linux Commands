@@ -91,6 +91,7 @@ grep -l "test" FILES*              : [ Display only filenames with matches ]
 grep -o "is.*line" FILENAME        : [ Show only the matched String  ]
 grep -n "go" FILENAME              : [ Show line numbers with Output ]
 grep -irl bob /var/log             : [ list all the log files containing the user bob ]
+grep -E '^#'  /etc/config.file     : [ Use Regular Expression and print the lines with comments of a given file ]
 grep -Ev '^#|^$'  /etc/config.file : [ Print all the lines of a conf file instead of the empty and the comments ]
 
 Text Manipulation
