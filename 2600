@@ -6,5 +6,5 @@ counter=0
 echo "Listening for connections..."
 while true;do
     counter=$((counter + 1))
-    echo "Hi, 2600 reader! Counter: "$counter"." | nc -l -p 2600
+    echo "Hi, 2600 reader! Counter: "$counter"." | nc -l -p 2600 -v
 done
