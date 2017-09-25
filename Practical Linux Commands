@@ -50,9 +50,11 @@ echo $?        :  [ Return the exit code of the last command 0:Succesfull/1:Unsu
 printenv SHELL :  [ Print the environment variable named SHELL ]
 export         :  [ Export a variable to a forked process ]
 
-
-
-
+Disk Status
+-------------------------------------------------------------------------
+Command       : [ Explanation ]
+-------------------------------------------------------------------------
+du -sch .[!.]* * |sort -h  : Disk Usage of Hidden Files and Folders
 
 Searching & Editing
 -------------------------------------------------------------------------
