@@ -1,8 +1,8 @@
 
-syntax on "enable syntax highlighting
-filetype indent plugin on "enable automatic indentation 
+syntax on                 " enable syntax highlighting
+filetype indent plugin on " enable automatic indentation 
 
-"if using a dark background adjust the colors for better contrast
+" if using a dark background adjust the colors for better contrast
 set background=dark
 
 set number           " enable line numbers
