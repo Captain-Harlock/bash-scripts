@@ -118,6 +118,7 @@ sed 's/.\x08//g' file                 : [ Remove nroff overstrikes ]
 sed -e :a -e 's/<[^>]*>//g;/</N;//ba' : [ Remove HTML tags ]
 sed 's/[^[:digit:]]//g'               : [ Discard everything except integers ]
 sed 's/[^[:uppper:],.]//g'            : [ Keep only an upper Character and Comma ]
+sed '/^#\|^$/d' filename              : [ Show all the lines of a file instead of the commented and empty ]
 
 
 Monitor Performance/Resources
