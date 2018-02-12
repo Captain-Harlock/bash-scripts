@@ -181,6 +181,8 @@ tar cBvf - directory | ssh remote_host tar xBvpf          : [ Compress a directo
 dd if=/dev/hdd5 | gzip -9 | nc -l 3333                    : [ Server Machine to perform backup ]
 nc 192.168.0.1 3333 | pv -b > hdd5partion.img.gz          : [ Connect to the above server and receive the partition image ]
 rsync -rsh='ssh -p 3333' -azv bash hostname:~/tmp .       : [ Use a different port than 22 for rsync, copy all bash contents recursively, verbose mode and compress ]
+rsync -avz -e "ssh -p $portNumber" user@remoteip:/path/to/files/ /local/path/
+
 rsync -n                                                  : [ Can be used in case you want a dry run, not dry rum :-) ]
 
 
