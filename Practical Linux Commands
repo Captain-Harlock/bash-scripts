@@ -137,6 +137,8 @@ sudo blkid                                         : [ Print block devices infor
 cat /proc/cmdline                                  : [ Show the Bootloader Options ]
 strace -e trace=network,read,write executable args : [ Monitor system calls from a user program ]
 
+Bonus - Kill all the processes of the dd command one by one:
+ps -C dd | grep -v "PID" | awk '{ print $1'} | while read CMD;do kill $CMD; done
 
 
 Network Tools
