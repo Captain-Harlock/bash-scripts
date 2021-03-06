@@ -1,0 +1,5 @@
+#!/bin/bash
+
+temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+echo -n "Temperature: $(($temp / 1000))"
+echo $'\xc2\xb0'C
