@@ -1,0 +1,69 @@
+
+1.Create the file /etc/rc.local 
+
+ vim /etc/rc.local 
+
+ #!/bin/sh -e
+ #
+ # rc.local
+ #
+ echo "14" > /sys/class/gpio/export
+ echo out > /sys/class/gpio/gpio14/direction
+ echo 0 > /sys/class/gpio/gpio14/value
+
+2. Write a file named fancontrol under /home/ubuntu/bin folder
+
+vim /home/ubuntu/bin/fancontrol
+
+#!/bin/bash
+
+#if temperature is over 65 degress Celcius (in centicelcius value) trigger the FAN
+threshold=65000
+
+while :
+do
+    temp=$(< /sys/class/thermal/thermal_zone0/temp)
+
+    if [ "$temp" -gt "$threshold" ]; then
+        echo 1 > /sys/class/gpio/gpio14/value
+    else
+        echo 0 > /sys/class/gpio/gpio14/value
+    fi
+    sleep 10
+done
+
+
+3. Make "fancontrol" script executed via creating a systemd startup script.
+
+
+vim /etc/systemd/system/fancontrol.service
+
+[Unit]
+Description=The fancontrol startup script
+# After=network.target
+# After=systemd-user-sessions.service
+# After=network-online.target
+
+[Service]
+# User=spark
+# Type=simple
+# PIDFile=/run/my-service.pid
+ExecStart=/home/ubuntu/bin/fancontrol start
+# ExecReload=/home/transang/startup.sh reload
+# ExecStop=/home/transang/startup.sh stop
+# TimeoutSec=30
+# Restart=on-failure
+# RestartSec=30
+# StartLimitInterval=350
+# StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl enable fancontrol
+sudo systemctl start fancontrol
+sudo systemctl status fancontrol
+
+4. reboot rpi
+
