@@ -103,10 +103,18 @@ Root: ${alignr}${fs_free /} / ${fs_size /}
 ${fs_bar 4 /}
 Home: ${alignr}${fs_free /home} / ${fs_size /home}
 ${fs_bar 4 /home}
+Databank: ${alignr}${fs_free /media/databank} / ${fs_size /media/databank}
+${fs_bar 4 /media/databank}
+
 ${color white}NETWORK ${hr 1}${color}
 
-Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s
-${downspeedgraph eth0 25,107} ${alignr}${upspeedgraph eth0 25,107}
-Total ${totaldown eth0} ${alignr}Total ${totalup eth0}
+Wired
+Down ${downspeed enp0s31f6 } k/s ${alignr}Up ${upspeed enp0s31f6} k/s
+${downspeedgraph enp0s31f6 25,107} ${alignr}${upspeedgraph enp0s31f6 25,107}
+Total ${totaldown enp0s31f6} ${alignr}Total ${totalup enp0s31f6}
 
+Wireless
+Down ${downspeed wlp3s0} k/s ${alignr}Up ${upspeed wlp6s0 } k/s
+${downspeedgraph wlp3s0 25,107} ${alignr}${upspeedgraph  wlp6s0 25,107}
+Total ${totaldown wlp3s0 } ${alignr}Total ${totalup wlp6s0}
 ]]
